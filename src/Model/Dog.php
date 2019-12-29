@@ -35,7 +35,7 @@ class Dog
     private $breed;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $coat;
 
@@ -156,17 +156,17 @@ class Dog
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCoat(): string
+    public function getCoat(): ?string
     {
         return $this->coat;
     }
 
     /**
-     * @param string $coat
+     * @param string|null $coat
      */
-    public function setCoat(string $coat): void
+    public function setCoat(?string $coat): void
     {
         $this->coat = $coat;
     }
