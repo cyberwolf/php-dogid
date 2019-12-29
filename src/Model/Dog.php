@@ -20,7 +20,7 @@ class Dog
     private $status;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $passportNumber;
 
@@ -108,17 +108,17 @@ class Dog
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPassportNumber(): string
+    public function getPassportNumber(): ?string
     {
         return $this->passportNumber;
     }
 
     /**
-     * @param string $passportNumber
+     * @param string|null $passportNumber
      */
-    public function setPassportNumber(string $passportNumber): void
+    public function setPassportNumber(?string $passportNumber): void
     {
         $this->passportNumber = $passportNumber;
     }
