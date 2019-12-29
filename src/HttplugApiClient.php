@@ -2,6 +2,7 @@
 
 namespace BSBV\DogID;
 
+use BSBV\DogID\Http\UnknownOrInvalidChipException;
 use Exception;
 use Http\Client\Exception as ClientException;
 use Http\Client\HttpClient;
@@ -60,7 +61,12 @@ class HttplugApiClient implements ApiClient
 
         }
 
-        if (200 !== $response->getStatusCode()) {
+        if (204 === $response->getStatusCode()) {
+            throw new UnknownOrInvalidChipException(
+              'The chip is unknown or invalid'
+            );
+        }
+        elseif (200 !== $response->getStatusCode()) {
             throw new ErrorResponseException(
               'Received a response from DogID, indicating an error',
               $response->getStatusCode()
