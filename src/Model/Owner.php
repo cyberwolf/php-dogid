@@ -122,6 +122,17 @@ class Owner
         return $this->contactData;
     }
 
+    public function getMobile(): ?string
+    {
+        foreach ($this->contactData as $contactData) {
+            if ($contactData->isMobile()) {
+                return $contactData->getValue();
+            }
+        }
+
+        return null;
+    }
+
     public function addContactData(ContactData $contactData): void
     {
         $this->contactData[] = $contactData;

@@ -46,5 +46,8 @@ class ContactData
         $this->contactType = $contactType;
     }
 
-
+    public function isMobile(): bool
+    {
+        return $this->contactType === 'mobile';
+    }
 }
